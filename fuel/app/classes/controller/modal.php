@@ -54,6 +54,7 @@ class Controller_Modal extends Controller_Rest
 		(
 				'title' => 'エリア（エリア）',
 				'body' => 'area.tpl',
+				
 		);
 
 		// Smarty個別テンプレート変数

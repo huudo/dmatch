@@ -2,9 +2,16 @@
 	<p class="modalAjax__ttl">
 		エリア選択<span class="modalAjax__subttl">自店舗を中心に、マウスで範囲を選択できます</span>
 	</p>
-
-	<section class="areaModal"></section>
-	<h1>TRỌNG HỮU</h1>
+	<style type="text/css">
+	#map{
+		width: 100%;
+		height: 100%;
+	}
+	</style>
+	<section class="areaModal">
+		<div id="map"></div>
+	</section>
+	
 	<div class="searchController searchController--inModal">
 		<a href="#" class="btn btn--s btn--black searchController__clear">クリア</a>
 		<div class="searchController__right">
@@ -15,3 +22,6 @@
 		</div>
 	</div>
 </div>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgJu-cnkiF57hU-aDv1Prlb0zMkqY7iCk&libraries=geometry&callback=initMap">
+</script>

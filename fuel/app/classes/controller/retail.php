@@ -5,8 +5,25 @@ class Controller_Retail extends Controller_Rest
 	 * 2-2：小売相場検索（条件指定）
 	 * メニューからの遷移時
 	 */
-	public function get_index()
+	// if($_POST['text1']){
+	// 	echo "ok";
+	// }
+
+public function post_test() {
+ 
+ 	 //upload処理などなど
+ 		 $response = array(
+ 				 'result' => true,
+ 				 'path' => 'hoge',
+ 				 'size' => 'hogeByte',
+ 				 'extension' => 'jpg'
+ 				 );
+ 	 return $response;
+ }
+
+public function get_index()
 	{
+	
 		// Smarty共通テンプレート変数
 		$common_settings = array
 		(
@@ -15,6 +32,7 @@ class Controller_Retail extends Controller_Rest
 				'list_js' => array
 				(
 						'action.js',
+						'maps.js',
 				),
 				'menu_status' => 'retail',
 		);
