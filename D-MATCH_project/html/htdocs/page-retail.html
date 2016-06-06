@@ -1,0 +1,263 @@
+<section class="topArea">
+  <div class="topArea__inner">
+    <h1 class="topArea__ttl">
+      小売相場検索
+    </h1>
+    <ul class="topArea__nav">
+      <li><a href="modal-history.html" class="modal">検索履歴</a></li>
+      <li><a href="modal-save.html" class="modal">保存条件</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="mainArea">
+  <div class="mainArea__inner">
+    <div class="tblBlock">
+      <table class="tbl tbl--3items">
+        <tr>
+          <th>車種 型式</th>
+          <td><a href="modal-cartype.html" class="btn btn--m modal">選択</a></td>
+          <th>モデル グレード</th>
+          <td><a href="modal-model.html" class="btn btn--m modal">選択</a></td>
+          <th>エリア</th>
+          <td class="last"><a href="modal-prefs.html" class="btn btn--s mgr-10 modal">都道府県から</a><a href="modal-area.html" class="btn btn--s modal">マップから</a></td>
+        </tr>
+        <tr>
+          <th>年式</th>
+          <td>
+            <select name="" class="selectBox selectBox--s">
+              <option value="下限なし">下限なし</option>
+            </select>
+            <span class="selectMiddle">〜</span>
+            <select name="" class="selectBox selectBox--s">
+              <option value="H29(2017)">H29(2017)</option>
+            </select>
+          </td>
+          <th>走行距離</th>
+          <td>
+            <select name="" class="selectBox selectBox--s">
+              <option value="下限なし">下限なし</option>
+            </select>
+            <span class="selectMiddle">〜</span>
+            <select name="" class="selectBox selectBox--s">
+              <option value="上限なし">上限なし</option>
+            </select>
+          </td>
+          <th></th>
+          <td class="last">
+            <label for="repairHistory"><input type="checkbox" id="repairHistory">修復歴なし</label>
+          </td>
+        </tr>
+        <tr>
+          <th>本体色</th>
+          <td colspan="5">
+            <div class="searchColor">
+              <div class="searchColor__block colorBlock colorBlock--white" alt="ホワイト系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--black" alt="ブラック系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--silver" alt="シルバー系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--pearl" alt="パール系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--blue" alt="ブルー系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--red" alt="レッド系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--gray" alt="グレー系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--brown" alt="ブラウン系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--purple" alt="パープル系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--green" alt="グリーン系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--pink" alt="ピンク系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--yellow" alt="イエロー系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--gold" alt="ゴールド系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--orange" alt="オレンジ系">
+                <div class="colorBlock__inner"></div>
+              </div>
+              <div class="searchColor__block colorBlock colorBlock--other" alt="その他">
+                <div class="colorBlock__inner"></div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="tblBlock">
+      <table class="tbl tbl--3items">
+        <tr>
+          <th>本体価格</th>
+          <td>
+            <select name="" class="selectBox selectBox--s">
+              <option value="下限なし">下限なし</option>
+            </select>
+            <span class="selectMiddle">〜</span>
+            <select name="" class="selectBox selectBox--s">
+              <option value="上限なし">上限なし</option>
+            </select>
+          </td>
+          <th>掲載期間</th>
+          <td>
+            <select name="" class="selectBox selectBox--s">
+              <option value="下限なし">下限なし</option>
+            </select>
+            <span class="selectMiddle">〜</span>
+            <select name="" class="selectBox selectBox--s">
+              <option value="上限なし">上限なし</option>
+            </select>
+          </td>
+          <th>成約状況</th>
+          <td class="last">
+            <select name="" class="selectBox selectBox--m">
+              <option value="選択して下さい">選択して下さい</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>支払総額</th>
+          <td>
+            <select name="" class="selectBox selectBox--s">
+              <option value="下限なし">下限なし</option>
+            </select>
+            <span class="selectMiddle">〜</span>
+            <select name="" class="selectBox selectBox--s">
+              <option value="上限なし">上限なし</option>
+            </select>
+          </td>
+          <th>削除日</th>
+          <td>
+            <select name="" class="selectBox selectBox--s">
+              <option value="下限なし">下限なし</option>
+            </select>
+            <span class="selectMiddle">〜</span>
+            <select name="" class="selectBox selectBox--s">
+              <option value="上限なし">上限なし</option>
+            </select>
+          </td>
+          <th>DLR/専業</th>
+          <td class="last">
+            <select name="" class="selectBox selectBox--m">
+              <option value="選択して下さい">選択して下さい</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <div class="moreBtn">
+        <a href="kouri1" class="openSwitch" data-type="1">&#8744; <span>もっと詳細な条件</span></a>
+      </div>
+      <div class="openBox openBox--kouri1">
+        <table class="tbl tbl--3items">
+          <tr>
+            <th>排気量</th>
+            <td>
+              <select name="" class="selectBox selectBox--s">
+                <option value="下限なし">下限なし</option>
+              </select>
+              <span class="selectMiddle">〜</span>
+              <select name="" class="selectBox selectBox--s">
+                <option value="上限なし">上限なし</option>
+              </select>
+            </td>
+            <th>ミッション</th>
+            <td>
+              <select name="" class="selectBox selectBox--m">
+                <option value="選択して下さい">選択して下さい</option>
+              </select>
+            </td>
+            <th>駆動方式</th>
+            <td class="last">
+              <select name="" class="selectBox selectBox--m">
+                <option value="選択して下さい">選択して下さい</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>ハンドル</th>
+            <td>
+              <select name="" class="selectBox selectBox--m">
+                <option value="選択して下さい">選択して下さい</option>
+              </select>
+            </td>
+            <th>車検</th>
+            <td>
+              <select name="" class="selectBox selectBox--m">
+                <option value="選択して下さい">選択して下さい</option>
+              </select>
+            </td>
+            <th>輸入車属性</th>
+            <td class="last">
+              <select name="" class="selectBox selectBox--m">
+                <option value="選択して下さい">選択して下さい</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>装備</th>
+            <td colspan="5">
+              <label for="inputEquipment--1" class="labelInput labelInput--s"><input type="checkbox" id="inputEquipment--1">SR</label>
+              <label for="inputEquipment--2" class="labelInput labelInput--s"><input type="checkbox" id="inputEquipment--2">革</label>
+              <label for="inputEquipment--3" class="labelInput labelInput--s"><input type="checkbox" id="inputEquipment--3">ナビ</label>
+              <label for="inputEquipment--4" class="labelInput labelInput--s"><input type="checkbox" id="inputEquipment--4">AW</label>
+              <label for="inputEquipment--5" class="labelInput labelInput--s"><input type="checkbox" id="inputEquipment--5">ABS</label>
+              <label for="inputEquipment--6" class="labelInput labelInput--s"><input type="checkbox" id="inputEquipment--6">AC</label>
+              <label for="inputEquipment--7" class="labelInput labelInput--s"><input type="checkbox" id="inputEquipment--7">PSD</label>
+            </td>
+          </tr>
+          <tr>
+            <th>評価</th>
+            <td colspan="5">
+              <select name="" class="selectBox selectBox--s">
+                <option value="下限なし">下限なし</option>
+              </select>
+              <span class="selectMiddle">〜</span>
+              <select name="" class="selectBox selectBox--s">
+                <option value="上限なし">上限なし</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="searchController">
+      <a href="#" class="btn btn--s btn--black searchController__clear">クリア</a>
+      <div class="searchController__right">
+        <a href="#" class="searchController__save">条件を保存</a>
+        <a href="#" class="btn btn--big btn--pink searchController__searchBtn">検索</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="resultArea">
+  <div class="resultController">
+    <ul class="resultController__tabs">
+      <li class="is-active">
+        <a href="#" data-set="tabMainResult" class="resultChange">検索結果</a>
+      </li>
+      <li><a href="#" data-set="tabMatrix" class="resultChange">マトリクス</a></li>
+      <li><a href="#" data-set="tabGraf" class="resultChange">平均相場グラフ</a></li>
+    </ul>
+  </div>
+  <div class="ajaxResult"></div>
+
+</section>
