@@ -1,13 +1,16 @@
 var map;
-var circle;  // Pink Circle
-var myLatLng; // Lat, Long of Account Shop
-var txt = []; //  NumCar
-var customTxt = []; // Div to show numCar
-var results = []; // List Shop
-var radius; // Radius of pink Circle
+var circle;
+var mapLabel;
+var myLatLng;
+var sizeText;
+var txt = [];
+var customTxt = [];
+var results = [];
+var radius;
 var totalCar = 0;
-var moveIcon = "/assets/img/btn/move-marker.png";
-
+function createPoint(lat1,lng1){
+	myLatLng = {lat: lat1, lng: lng1};
+}
 function initMap() {
 		$.ajax({
 			type: 'POST',
@@ -22,38 +25,41 @@ function initMap() {
 				  };				
 				map = new google.maps.Map(document.getElementById("map"), myOptions);
 				results = res;		
-				radius = res[0][4];				
+				radius = res[0][4];
+				document.getElementById('searchController__carAmount').innerHTML = Math.floor(radius);
 				createMap(results,radius);			   
 			},
 			error: function(res) {			  
 				console.log(res) ;
 			},
-		});	  
+		});
+		
+	  
+	//google.maps.event.addListener(map, 'bounds_changed', createMap);
+  
 }	
-// Function to create default pink Circle
 function createMap(res,radius){
-	totalCar = 0;
 	for(var i = 1; i < res.length; i++){
 		var poisition = new google.maps.LatLng(res[i][0], res[i][1]);
 		customTxt[i] = "<div>"+res[i][2] +"</div>"
 		if(res[i][3] < radius){
 			txt[i] = new TxtOverlay(poisition, customTxt[i], "customBoxInSite", map);
-			totalCar = totalCar + res[i][2];
 		}
 		if(res[i][3] >= radius){
 			txt[i] = new TxtOverlay(poisition, customTxt[i], "customBox", map);	
 		}						
-	}		
-	document.getElementById('searchController__carAmount').innerHTML = totalCar;
+	}				
 	circle = new google.maps.Circle({
-		  strokeColor: '#FF7796',
+		  strokeColor: 'red',
 		  strokeOpacity: 0.8,
 		  strokeWeight: 2,
-		  fillColor: '#FF7796',
+		  fillColor: 'red',
 		  fillOpacity: 0.5,
 		  map: map,
 		  center: myLatLng,
-		  radius: radius
+		  radius: radius,
+		  optimized: false,
+		  zIndex: 9999
 	});
 	var lat = circle.center.lat();
 	var lng = circle.getBounds().getNorthEast().lng();
@@ -62,7 +68,7 @@ function createMap(res,radius){
 		draggable: true,
 		map: map,
 		position: position,
-		icon: moveIcon
+		title: 'Drag me!'
 	});				
 	google.maps.event.addListener(markerDrag,'drag',function(){
 	if(circle){
@@ -73,33 +79,19 @@ function createMap(res,radius){
 	var lng = markerDrag.position.lng();
 	var pointDrag = new google.maps.LatLng(lat,lng);
 	radius = google.maps.geometry.spherical.computeDistanceBetween(centerMap,pointDrag);
-		setCircle(radius,res); // When drag point, draw new Circle
+		setCircle(radius,res);
 	});				
 	google.maps.event.addListener(markerDrag,'dragend',function(){				
-		setMarker(radius,res);//When dragend draw circle for all shop
+		setMarker(radius,res);
 	}); 		   
 	
 }
-// Function to create circle and show numCar for each shop
 function setMarker(radius,res) {
 	for(var i = 0; i < txt.length;i++ ){
 		if(txt[i]){
 			txt[i].setMap(null);
 		}
 	}
-	if(circle){
-       circle.setMap(null);
-    }		
-	circle = new google.maps.Circle({
-          strokeColor: '#FF7796',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#FF7796',
-          fillOpacity: 0.5,
-          map: map,
-          center: myLatLng,
-          radius: radius			  
-	});
 	totalCar = 0;
 	for(var i = 1; i < res.length; i++){
 		var poisition = new google.maps.LatLng(res[i][0], res[i][1]);
@@ -112,18 +104,23 @@ function setMarker(radius,res) {
 			txt[i] = new TxtOverlay(poisition, customTxt[i], "customBox", map);	
 		}						
 	}
-	document.getElementById('searchController__carAmount').innerHTML = totalCar;	
+	document.getElementById('searchController__carAmount').innerHTML = Math.floor(radius);	
 }
-
-function setCircle(radius,res) {	
+function setCircle(radius,res) {
+	if(circle){
+       circle.setMap(null);
+    }	
+	
 	circle = new google.maps.Circle({
-          strokeColor: '#FF7796',
+          strokeColor: 'red',
           strokeOpacity: 0.8,
           strokeWeight: 2,
-          fillColor: '#FF7796',
-          fillOpacity: 0,
+          fillColor: 'red',
+          fillOpacity: 0.5,
           map: map,
           center: myLatLng,
-          radius: radius		  
-	});	
+          radius: radius,
+		  
+	});
+	
 }

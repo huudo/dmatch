@@ -30,7 +30,7 @@ function TxtOverlay(pos, txt, cls, map) {
       // We add an overlay to a map via one of the map's panes.
       var panes = this.getPanes();
       //panes.floatPane.appendChild(div);
-      this.getPanes().overlayLayer.appendChild(div);
+	  this.getPanes().overlayLayer.appendChild(div)
     }
     TxtOverlay.prototype.draw = function() {
 

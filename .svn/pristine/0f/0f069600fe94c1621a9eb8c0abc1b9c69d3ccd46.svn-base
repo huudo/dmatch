@@ -8,7 +8,8 @@ function TxtOverlay(pos, txt, cls, map) {
       // div. We'll actually create this div
       // upon receipt of the add() method so we'll
       // leave it null for now.
-      this.div_ = null;	 
+      this.div_ = null;
+	  this.zIndex = 10;
       // Explicitly call setMap() on this overlay
       this.setMap(map);
     }
@@ -29,8 +30,7 @@ function TxtOverlay(pos, txt, cls, map) {
       div.style.top = (position.y -30) + 'px';
       // We add an overlay to a map via one of the map's panes.
       var panes = this.getPanes();
-      //panes.floatPane.appendChild(div);
-      this.getPanes().overlayLayer.appendChild(div);
+      panes.floatPane.appendChild(div);
     }
     TxtOverlay.prototype.draw = function() {
 

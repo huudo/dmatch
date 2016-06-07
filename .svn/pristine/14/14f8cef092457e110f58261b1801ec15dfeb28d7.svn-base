@@ -2536,21 +2536,3 @@ INFO - 2016-06-06 19:29:21 --> Fuel\Core\Request::execute - Setting main Request
 INFO - 2016-06-06 19:29:21 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "retail/point"
 INFO - 2016-06-06 19:29:21 --> Fuel\Core\Request::execute - Called
 INFO - 2016-06-06 19:29:21 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2016-06-06 19:30:32 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "retail"
-INFO - 2016-06-06 19:30:32 --> Fuel\Core\Request::execute - Called
-INFO - 2016-06-06 19:30:32 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2016-06-06 19:30:34 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "modal/area"
-INFO - 2016-06-06 19:30:34 --> Fuel\Core\Request::execute - Called
-INFO - 2016-06-06 19:30:34 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2016-06-06 19:30:34 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "retail/point"
-INFO - 2016-06-06 19:30:34 --> Fuel\Core\Request::execute - Called
-INFO - 2016-06-06 19:30:34 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2016-06-06 19:30:40 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "retail"
-INFO - 2016-06-06 19:30:40 --> Fuel\Core\Request::execute - Called
-INFO - 2016-06-06 19:30:40 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2016-06-06 19:30:41 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "modal/area"
-INFO - 2016-06-06 19:30:41 --> Fuel\Core\Request::execute - Called
-INFO - 2016-06-06 19:30:41 --> Fuel\Core\Request::execute - Setting main Request
-INFO - 2016-06-06 19:30:41 --> Fuel\Core\Request::__construct - Creating a new main Request with URI = "retail/point"
-INFO - 2016-06-06 19:30:41 --> Fuel\Core\Request::execute - Called
-INFO - 2016-06-06 19:30:41 --> Fuel\Core\Request::execute - Setting main Request

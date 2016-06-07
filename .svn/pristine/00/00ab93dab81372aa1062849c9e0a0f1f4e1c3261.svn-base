@@ -1,5 +1,4 @@
 <?php
-use \model\Retail;
 class Controller_Retail extends Controller_Rest {
 
     /**
@@ -56,11 +55,27 @@ class Controller_Retail extends Controller_Rest {
 
     /* Get point maps */
 
-    //public function post_point() {
-    public function action_point() {
+    public function post_point() {
         
-        //Debug::dump(Retail::get_point());
-        return Retail::get_point();
+        $centerPointXY = DB::query('select KEISAISAKI_KOKYAKU_HOJIN_CD, KEISAISAKI_KYK_MADOGUCHI_CD, IDO_WORLD, KEIDO_WORLD from `client`', DB::SELECT)->execute();
+        $i = 0;
+
+        foreach ($centerPointXY as $Point) {
+            $lat = $Point['IDO_WORLD'];
+            $lng = $Point['KEIDO_WORLD'];
+            $results[$i][0] = $lat;
+            $results[$i][1] = $lng;
+            $results[$i][2] = rand(10, 100);
+            if ($i == 0) {
+                $distance = 0;
+            } else {
+                $distance = 6378137 * acos(cos(deg2rad($results[0][0])) * cos(deg2rad($lat)) * cos(deg2rad($lng) - deg2rad($results[0][1])) + sin(deg2rad($results[0][0])) * sin(deg2rad($lat)));
+            }
+            $results[$i][3] = $distance;
+            $i++;
+        }
+        $results[0][4] = 1000;
+        return $results;
     }
 
     /**

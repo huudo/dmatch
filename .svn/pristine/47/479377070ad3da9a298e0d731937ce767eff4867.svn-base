@@ -1,13 +1,14 @@
 var map;
-var circle;  // Pink Circle
-var myLatLng; // Lat, Long of Account Shop
-var txt = []; //  NumCar
-var customTxt = []; // Div to show numCar
-var results = []; // List Shop
-var radius; // Radius of pink Circle
+var circle = [];
+var mapLabel;
+var myLatLng;
+var sizeText;
+var txt = [];
+var customTxt = [];
+var results = [];
+var radius;
 var totalCar = 0;
-var moveIcon = "/assets/img/btn/move-marker.png";
-
+var moveIcon = "/assets/img/btn/move-marker.png"
 function initMap() {
 		$.ajax({
 			type: 'POST',
@@ -30,7 +31,6 @@ function initMap() {
 			},
 		});	  
 }	
-// Function to create default pink Circle
 function createMap(res,radius){
 	totalCar = 0;
 	for(var i = 1; i < res.length; i++){
@@ -73,14 +73,13 @@ function createMap(res,radius){
 	var lng = markerDrag.position.lng();
 	var pointDrag = new google.maps.LatLng(lat,lng);
 	radius = google.maps.geometry.spherical.computeDistanceBetween(centerMap,pointDrag);
-		setCircle(radius,res); // When drag point, draw new Circle
+		setCircle(radius,res);
 	});				
 	google.maps.event.addListener(markerDrag,'dragend',function(){				
-		setMarker(radius,res);//When dragend draw circle for all shop
+		setMarker(radius,res);
 	}); 		   
 	
 }
-// Function to create circle and show numCar for each shop
 function setMarker(radius,res) {
 	for(var i = 0; i < txt.length;i++ ){
 		if(txt[i]){
@@ -98,7 +97,9 @@ function setMarker(radius,res) {
           fillOpacity: 0.5,
           map: map,
           center: myLatLng,
-          radius: radius			  
+          radius: radius,	
+			
+		  
 	});
 	totalCar = 0;
 	for(var i = 1; i < res.length; i++){
@@ -114,7 +115,6 @@ function setMarker(radius,res) {
 	}
 	document.getElementById('searchController__carAmount').innerHTML = totalCar;	
 }
-
 function setCircle(radius,res) {	
 	circle = new google.maps.Circle({
           strokeColor: '#FF7796',
@@ -124,6 +124,7 @@ function setCircle(radius,res) {
           fillOpacity: 0,
           map: map,
           center: myLatLng,
-          radius: radius		  
+          radius: radius,
+		  
 	});	
 }

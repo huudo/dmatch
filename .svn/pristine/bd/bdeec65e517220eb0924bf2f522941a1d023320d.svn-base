@@ -1,0 +1,100 @@
+var map;
+var circle;
+var mapLabel;
+var myLatLng;
+var sizeText;
+function createPoint(lat1,lng1){
+	myLatLng = {lat: lat1, lng: lng1};
+}
+function initMap() {
+		$.ajax({
+			type: 'POST',
+			url: "/retail/point.json",
+			data: {text1: "shop"},
+			success: function(res) {	
+				myLatLng = new google.maps.LatLng(res[0], res[1]);			   
+				var myOptions = {
+					zoom: 14,
+					center: myLatLng,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				  };
+				map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+				var marker = new google.maps.Marker({
+					position: myLatLng,
+					map: map,
+					title: "Hello World!"
+				  });
+
+				marker.setMap(null);
+
+				customTxt = "<div>100</div>"
+				txt = new TxtOverlay(myLatLng, customTxt, "customBox", map);
+				
+				circle = new google.maps.Circle({
+					  strokeColor: 'red',
+					  strokeOpacity: 0.8,
+					  strokeWeight: 2,
+					  fillColor: 'red',
+					  fillOpacity: 0.5,
+					  map: map,
+					  center: myLatLng,
+					  radius: 1000,
+					  optimized: false,
+					  zIndex: -4
+				});
+				var lat = circle.center.lat();
+				var lng = circle.getBounds().getNorthEast().lng();
+				var position = new google.maps.LatLng(lat, lng);
+				markerDrag  = new google.maps.Marker({
+					draggable: true,
+					map: map,
+					position: position,
+					title: 'Drag me!'
+				});
+				
+				google.maps.event.addListener(markerDrag,'drag',function(){
+				if(circle){
+				   circle.setMap(null);
+				}   
+				var centerMap = new google.maps.LatLng(res[0],res[1]);
+				var lat = markerDrag.position.lat();
+				var lng = markerDrag.position.lng();
+				var pointDrag = new google.maps.LatLng(lat,lng);
+				var radius = google.maps.geometry.spherical.computeDistanceBetween(centerMap,pointDrag);
+					setCircle(radius);
+				});
+				
+				 google.maps.event.addListener(markerDrag,'dragend',function(){				
+					setCircle(radius);
+				}); 
+			   
+			   
+			},
+			error: function(res) {
+			  
+				console.log(res) ;
+			},
+		});
+		
+	  
+	//google.maps.event.addListener(map, 'bounds_changed', createMap);
+  
+}	
+
+function setCircle(radius) {
+	if(circle){
+       circle.setMap(null);
+    }
+	circle = new google.maps.Circle({
+          strokeColor: 'red',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: 'red',
+          fillOpacity: 0.5,
+          map: map,
+          center: myLatLng,
+          radius: radius,
+		  
+	});
+}
